@@ -22,7 +22,12 @@ tests:
   steps:
     cluster_profile: metal-perfscale-selfsched
     env:
+      FOREMAN_OS: RHEL 9.6
       MODEL: R630
+      NUM_SERVERS: "1"
+      STARTING_NODE: "0"
+    pre:
+    - ref: openshift-qe-installer-bm-foreman
     test:
     - ref: openshift-qe-microshift-deploy
     workflow: openshift-qe-installer-bm-self-sched
