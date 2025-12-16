@@ -26,11 +26,15 @@ tests:
       MODEL: R630
       NUM_SERVERS: "1"
       STARTING_NODE: "0"
+    post:
+    - ref: openshift-qe-installer-bm-self-sched-terminate
     pre:
+    - ref: openshift-qe-installer-bm-self-sched
+    - ref: openshift-qe-installer-bm-ping
+    - ref: openshift-qe-installer-bm-prereqs
     - ref: openshift-qe-installer-bm-foreman
     test:
     - ref: openshift-qe-microshift-deploy
-    workflow: openshift-qe-installer-bm-self-sched
 zz_generated_metadata:
   branch: main
   org: openshift-eng
